@@ -45,7 +45,8 @@ function ajax(opts){
   return promise
 }
 
-// ajax 测试
+// ajax 测试 ,测试成功
+/*
 ajax({
   url: 'http://api.jirengu.com/getWeather.php',
   data: {
@@ -53,4 +54,7 @@ ajax({
   }
 }).then(res => {
   console.log(res)
+}).catch(err => {
+  console.log(err)
 })
+*/
