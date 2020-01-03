@@ -21,6 +21,7 @@ function ajax(opts){
     // 创建 XMLHttpRequest 实例对象
     let xhr = new XMLHttpRequest()
     xhr.open(type,url,true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function(){
       if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
         if(dataType === "json"){
