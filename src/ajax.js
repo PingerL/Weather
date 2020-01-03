@@ -20,6 +20,7 @@ function ajax(opts){
 
     // 创建 XMLHttpRequest 实例对象
     let xhr = new XMLHttpRequest()
+    xhr.withCredentials = true;
     xhr.open(type,url,true)
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function(){
