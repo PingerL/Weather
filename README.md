@@ -28,6 +28,29 @@
 - 页面新增 input 输入框， 点击按钮实现查询功能
 - 给页面添加样式
 2. 版本一使用 `document.querySelector('.container').innerHTML = text`来插入获取的数据内容， innerHTML 会将以前的页面全部覆盖。所以在 HTML 上，在 class 为 container 的元素上新增一个 `<div class="des"></div>` 元素来包裹要插入的数据，main.js 中对应位置变成 `document.querySelector('.des').innerHTML = text`
+##### 第三版：整理代码，将实现某一功能的代码块抽成函数，使页面整洁
+如：
+```
+function render(){
+  ajax(data).then(res => {
+    <!-- 这里是一大段代码 -->
+  }).catch(err => {
+    console.log(err)
+  })
+}
+```
+改成：
+```
+function setData(res){
+  //...code
+}
+  
+ajax(data)
+  .then(res => setData(res)})
+  .catch(err => {
+    console.log(err)
+  })
+```
 
 #### 四、期间用到的 JavaScript 知识点
 1. 第一版：

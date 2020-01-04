@@ -1,5 +1,4 @@
-function render(data) {ajax(data
-).then(res => {
+function setData(res){
   // console.log(res)  //测试是否成功获得返回的数据
   let $des = document.querySelector(".des"),
       times = res.results[0].weather_data,
@@ -50,8 +49,6 @@ function render(data) {ajax(data
     <ul>${content}</ul>
   `
   $des.innerHTML = text
-
-})
 }
 
 function getInputVal(){
@@ -64,5 +61,9 @@ function getInputVal(){
     },
     dataType: 'json'
   }
-  render($data)
+  ajax($data)
+    .then(res => setData(res))
+    .catch(err => {console.log(err)})
+  
+  $input.value = '' // 重置 input 输入框
 }
