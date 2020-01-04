@@ -8,12 +8,20 @@
 #### 三、版本介绍
 ##### 第一版：简单获取天气数据，并将天气数据渲染到页面上
 1. 实现的功能
-- 这一版本城市的名称只能在代码中修改
+- 这一版本城市的名称只能在脚本中修改
 - 没有 CSS 样式
 2. 出现的问题
-- 上传到 github 上，请求数据时出现错误，同源策略
-- 解决办法一： 先使用了 CORS 来解决，貌似不可以，好像要和后端商量来着，等明天(2020.01.04)再仔细看下
-- 解决办法二： 使用 `jsonp`来解决
+- 问题一：上传到 github 上，请求数据时出现错误，同源策略 报错：`Mixed Content: The page at 'https://pingerl.github.io/Weather/index.html' was loaded over HTTPS, but requested an insecure script 'http://api.jirengu.com/getWeather.php'. This request has been blocked; the content must be served over HTTPS.`
+- 尝试一： 先使用了 CORS 来解决，貌似不可以，好像要和后端商量来着(抽个时间好好看下 CORS)
+- 尝试二： 使用 jsonp 来解决，这个也要和后端合作来着(🤦‍，之前学的都忘记了......)
+- 尝试三： 😄，不尝试了，还是把接口改下吧，调用数据接口：`https://jirenguapi.applinzi.com/getWeather.php`
+
+**总结：JSONP、CORS 这两种跨域请求方式都需要对方服务器支持。假设对方服务器不提供支持怎么办？还有一个必杀技，自己搭建 server 中请求中转**
+- 待尝试：自己搭建 server 中请求中转：
+        1. 搭建服务器，创建接口，如 https://pingerl.github.io/Weather
+        2. 设置这个接口允许 CORS 跨域
+        3. 我们的页面向自己的这个接口发请求
+        4. 接口收到请求后，在服务器端向http://api.jirengu.com/getWeather.php 这个接口要数据（在服务端不存在同源策略限制），拿到数据后，返回给前端页面
 
 #### 四、期间用到的 JavaScript 知识点
 1. 第一版：
