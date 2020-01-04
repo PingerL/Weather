@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./src/index.css">
   <title>天气预报</title>
 </head>
 <body>
   <div class="container">
+    <input type="text" class="input-box" placeholder="请输入要查询天气的城市">
+    <span onclick="getInputVal()" class="btn">查询</span>
+    <div class="des">
+    </div>
+  </div>
   </div>
   <script src="./src/ajax.js"></script> 
   <script src="./src/main.js"></script>

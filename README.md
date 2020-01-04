@@ -22,6 +22,12 @@
         2. 设置这个接口允许 CORS 跨域
         3. 我们的页面向自己的这个接口发请求
         4. 接口收到请求后，在服务器端向`http://api.jirengu.com/getWeather.php `这个接口要数据（在服务端不存在同源策略限制），拿到数据后，返回给前端页面
+        
+##### 第二版：可在页面上输入要查询的城市，点击按钮查询对应城市天气
+1. 新增功能
+- 页面新增 input 输入框， 点击按钮实现查询功能
+- 给页面添加样式
+2. 版本一使用 `document.querySelector('.container').innerHTML = text`来插入获取的数据内容， innerHTML 会将以前的页面全部覆盖。所以在 HTML 上，在 class 为 container 的元素上新增一个 `<div class="des"></div>` 元素来包裹要插入的数据，main.js 中对应位置变成 `document.querySelector('.des').innerHTML = text`
 
 #### 四、期间用到的 JavaScript 知识点
 1. 第一版：
