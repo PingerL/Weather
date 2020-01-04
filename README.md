@@ -18,10 +18,10 @@
 
 **总结：JSONP、CORS 这两种跨域请求方式都需要对方服务器支持。假设对方服务器不提供支持怎么办？还有一个必杀技，自己搭建 server 中请求中转**
 - 待尝试：自己搭建 server 中请求中转：
-        1. 搭建服务器，创建接口，如 https://pingerl.github.io/Weather
+        1. 搭建服务器，创建接口，如 `https://pingerl.github.io/Weather`
         2. 设置这个接口允许 CORS 跨域
         3. 我们的页面向自己的这个接口发请求
-        4. 接口收到请求后，在服务器端向http://api.jirengu.com/getWeather.php 这个接口要数据（在服务端不存在同源策略限制），拿到数据后，返回给前端页面
+        4. 接口收到请求后，在服务器端向`http://api.jirengu.com/getWeather.php `这个接口要数据（在服务端不存在同源策略限制），拿到数据后，返回给前端页面
 
 #### 四、期间用到的 JavaScript 知识点
 1. 第一版：
