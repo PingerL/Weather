@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      font: 14px/1.5 Arial;
+      color: #fff;
+      position: relative;
+      height: 100%;
+      border: 1px solid transparent;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: url(https://cloud.hunger-valley.com/18-3-25/36850658.jpg) center center no-repeat;
+      background-size: 300%;
+      filter: blur(5px);
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      width: 80%;
+      margin: 100px auto;
+      border-radius: 6px;
+    }
+
+    section .cover {
+      position: relative;
+      height: 340px;
+      background: url(https://cloud.hunger-valley.com/18-3-25/36850658.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    section .location {
+      float: right;
+      text-align: center;
+      margin: 20px;
+    }
+
+    section .location .iconfont {
+      font-size: 40px;
+      color: #fff;
+    }
+
+    section .suggestion {
+      position: absolute;
+      bottom: 0;
+    }
+
+    section .suggestion .tabs>li {
+      float: left;
+      text-align: center;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    section .suggestion .tabs>li .iconfont {
+      margin-right: 10px;
+    }
+
+    section .suggestion .tabs>li.active {
+      border-bottom: 2px solid #fff;
+    }
+
+    section .suggestion .panels {
+      width: 300px;
+      height: 200px;
+      padding: 20px;
+      margin: 30px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    section .suggestion .panels>li {
+      display: none;
+    }
+
+    section .suggestion .panels>li.active {
+      display: block;
+    }
+
+    section .detail {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    section .detail .current {
+      flex: 2;
+      height: 100px;
+      display: flex;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    section .detail .current>div {
+      flex: 1;
+      text-align: center;
+    }
+
+    section .detail .current .temperature {
+      font-size: 40px;
+      display: block;
+    }
+
+    section .detail .current .date {
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 0px 5px;
+      font-size: 12px;
+    }
+
+    section .detail .current .weather-pic {
+      display: block;
+      margin-top: 20px;
+    }
+
+    section .detail .current .more {
+      display: block;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+
+
+    section .detail .future {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    section .detail .future span {
+      display: block;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="app">
+    <div class="cover">
+      <div class="location">
+        <div class="icon"><span class="iconfont icon-location"></span></div>
+        <div class="city"> 杭州</div>
+        <div class="time">20:52</div>
+      </div>
+      <div class="suggestion">
+        <ul class="panels">
+          <li class="active">
+            建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。
+          </li>
+          <li>建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等1。</li>
+          <li>建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等2。</li>
+          <li>建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等3。</li>
+          <li>建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等4。</li>
+        </ul>
+        <ul class="tabs clearfix">
+          <li class="active"><span class="iconfont icon-close"></span><span class="title"></span></li>
+          <li><span class="iconfont icon-wash"></span><span class="title"></span></li>
+          <li><span class="iconfont icon-heathy"></span><span class="title"></span></li>
+          <li><span class="iconfont icon-sport"></span><span class="title"></span></li>
+          <li><span class="iconfont icon-sunlight"></span><span class="title"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="detail">
+      <div class="current">
+        <div>
+          <span class="temperature"><span class="number">82</span> ℃</span>
+          <span class="date">3月25日星期日</span>
+        </div>
+        <div>
+          <span class="weather-pic"><img src="http://api.map.baidu.com/images/weather/day/yin.png" alt=""></span>
+          <span class="more">PM25/30 良</span>
+        </div>
+      </div>
+      <div class="future">
+        <span class="week"> 周一</span>
+        <span class="weather-pic"><img src="http://api.map.baidu.com/images/weather/day/yin.png" alt=""></span>
+        <span class="temperature">18~36</span>
+      </div>
+      <div class="future">
+        <span class="week"> 周一</span>
+        <span class="weather-pic"><img src="http://api.map.baidu.com/images/weather/day/yin.png" alt=""></span>
+        <span class="temperature">18~36</span>
+      </div>
+      <div class="future">
+        <span class="week"> 周一</span>
+        <span class="weather-pic"><img src="http://api.map.baidu.com/images/weather/day/yin.png" alt=""></span>
+        <span class="temperature">18~36</span>
+      </div>
+    </div>
+  </section>
+  <script>
+
+    let app = {
+
+      init() {
+        var _this = this
+        this.getData(function (data) {
+          _this.renderData(data)
+          _this.bindEvent()
+        })
+
+      },
+
+      bindEvent() {
+        $$('#app .tabs>li').forEach(function (tab, idx) {
+          tab.onclick = function () {
+            $$('#app .tabs>li').forEach(node => {
+              node.classList.remove('active')
+            })
+            this.classList.add('active')
+            let index = [].indexOf.call($$('#app .tabs>li'), this)
+            console.log(idx)
+            console.log(index)
+            $$('#app .panels>li').forEach(panel => panel.classList.remove('active'))
+            $$('#app .panels>li')[index].classList.add('active')
+          }
+        })
+      },
+
+      renderData(data) {
+        console.log(data)
+        $('#app .location .city').innerText = data.results[0].currentCity
+        var last_update = new Date()
+        $('#app .location .time').innerText = last_update.getHours() + ':' + fixTime(last_update.getMinutes())
+        data.results[0].index.forEach(function (item, index) {
+          console.log(item, index)
+          $$('#app .tabs .title')[index].innerText = item.title
+          $$('#app .panels>li')[index].innerText = item.des
+        })
+        let temperature = data.results[0].weather_data[0].date.match(/(-?\d+)℃/)[1]
+        console.log(temperature)
+        $('#app .temperature .number').innerText = temperature
+
+        let d = new Date(data.date)
+        $('#app .date').innerText = getChsDate(d)
+        $('#app .weather-pic img').src = data.results[0].weather_data[0].dayPictureUrl
+        $('#app .detail .more').innerText = data.results[0].weather_data[0].weather + '/' + data.results[0].pm25
+
+        for (let index = 0; index < data.results[0].weather_data.length - 1; index++) {
+          $$('#app .future .week')[index].innerText = data.results[0].weather_data[index + 1].date
+          $$('#app .future .weather-pic img')[index].src = data.results[0].weather_data[index + 1].dayPictureUrl
+          $$('#app .future .temperature')[index].innerText = data.results[0].weather_data[index + 1].temperature
+        }
+      },
+
+      getData(callback) {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://api.jirengu.com/getWeather.php', true)
+        xhr.send()
+        xhr.onload = function () {
+          callback(JSON.parse(xhr.responseText))
+        }
+      }
+    }
+
+    app.init()
+
+    function $(selector) {
+      return document.querySelector(selector)
+    }
+    function $$(selector) {
+      return document.querySelectorAll(selector)
+    }
+    function fixTime(t) {
+      if (t.toString().length == 1) {
+        return '0' + t
+      }
+      return t
+    }
+    function getChsDate(dateObj) {
+      var month = dateObj.getMonth() + 1
+      var date = dateObj.getDate()
+      var dayDict = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+      var week = dayDict[dateObj.getDay()]
+      return `${month}月${date}日${week}`
+    }
+
+  </script>
+</body>
+
+</html>
