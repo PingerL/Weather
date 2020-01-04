@@ -58,7 +58,7 @@ function getInputVal(){
   let $input = document.querySelector('.input-box')
   let $city = $input.value
   let $data = {
-    url: 'http://api.jirengu.com/getWeather.php',
+    url: 'https://jirenguapi.applinzi.com/getWeather.php',
     data: {
       city: $city
     },
