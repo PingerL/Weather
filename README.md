@@ -23,7 +23,7 @@
         3. 我们的页面向自己的这个接口发请求
         4. 接口收到请求后，在服务器端向`http://api.jirengu.com/getWeather.php `这个接口要数据（在服务端不存在同源策略限制），拿到数据后，返回给前端页面
         
-##### 第二版：可在页面上输入要查询的城市，点击按钮查询对应城市天气
+##### 第二版：可在页面上输入要查询的城市，点击按钮查询对应城市天气(不输入的就查询的话，默认为当前所在城市的天气)
 1. 新增功能
 - 页面新增 input 输入框， 点击按钮实现查询功能
 - 给页面添加样式
@@ -51,6 +51,16 @@ ajax(data)
     console.log(err)
   })
 ```
+##### 第四版：增加 input 元素的 keydown 事件，按下 enter 时搜索天气
+```
+$input.addEventListener('keydown', () => {
+  if (event.keyCode == 13) { 
+    console.log('enter')
+    getInputVal()
+  }
+})
+```
+
 
 #### 四、期间用到的 JavaScript 知识点
 1. 第一版：

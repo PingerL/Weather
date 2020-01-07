@@ -51,8 +51,10 @@ function setData(res){
   $des.innerHTML = text
 }
 
+
+let $input = document.querySelector('.input-box')
 function getInputVal(){
-  let $input = document.querySelector('.input-box')
+  // let $input = document.querySelector('.input-box')
   let $city = $input.value
   let $data = {
     url: 'https://jirenguapi.applinzi.com/getWeather.php',
@@ -63,7 +65,22 @@ function getInputVal(){
   }
   ajax($data)
     .then(res => setData(res))
-    .catch(err => {console.log(err)})
+    .catch(err => {
+      alert("未能查询到该城市的天气，请确认是否输入正确的城市名称并重新查询！")
+      console.log(err)
+    })
   
   $input.value = '' // 重置 input 输入框
 }
+
+$input.addEventListener('keydown', () => {
+  if (event.keyCode == 13) { 
+    console.log('enter')
+    getInputVal()
+  }
+})
+// $input.onkeydown(function(){
+//   if (event.keyCode == 13) { 
+//       $input.click();
+//   }
+// })
